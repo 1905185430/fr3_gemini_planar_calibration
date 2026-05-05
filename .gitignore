@@ -1,0 +1,8 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+
+Log/
+
+planar_session.json
+planar_calibration_result.json

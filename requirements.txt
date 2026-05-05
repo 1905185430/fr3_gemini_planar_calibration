@@ -1,0 +1,6 @@
+numpy
+opencv-python
+pytest
+fastapi
+uvicorn
+jinja2

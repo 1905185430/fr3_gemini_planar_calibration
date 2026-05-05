@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FR3 + Gemini335 平面标定</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="left-panel">
+      <div class="card">
+        <div class="card-title">相机画面</div>
+        <img id="videoFeed" src="/video_feed" alt="相机画面">
+      </div>
+    </div>
+    <div class="right-panel">
+      <div class="card">
+        <div class="card-title">状态</div>
+        <div class="state-grid">
+          <div>模式</div><div id="modeText">-</div>
+          <div>状态</div><div id="statusText">-</div>
+          <div>样本数</div><div id="sampleCount">0</div>
+          <div>当前像素</div><div id="selectedPixel">-</div>
+          <div>允许运动</div><div id="moveEnabled">否</div>
+          <div>位姿刷新</div><div id="poseRefresh">-</div>
+          <div>验证姿态锁定</div><div id="verifyRpy">-</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">TCP 位姿</div>
+        <pre id="tcpPose">-</pre>
+      </div>
+
+      <div class="card">
+        <div class="card-title">操作</div>
+        <div class="button-grid">
+          <button id="btnSave">保存采样点</button>
+          <button id="btnUndo">撤销上一点</button>
+          <button id="btnCompute">计算标定</button>
+          <button id="btnVerify">进入验证模式</button>
+          <button id="btnSampleMode">返回采样模式</button>
+          <button id="btnMoveToggle">允许运动</button>
+          <button id="btnGo">移动到预测点</button>
+          <button id="btnAlign">对正姿态 180/0/180</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">预测结果</div>
+        <pre id="predictionText">-</pre>
+      </div>
+
+      <div class="card">
+        <div class="card-title">标定误差</div>
+        <pre id="errorText">-</pre>
+      </div>
+
+      <div class="card">
+        <div class="card-title">操作流程</div>
+        <ol class="workflow">
+          <li>手动拖动 FR3 末端到一个网格点</li>
+          <li>在图像中点击对应位置</li>
+          <li>点击“保存采样点”</li>
+          <li>重复采样，然后点击“计算标定”</li>
+          <li>进入验证模式，点击一点，允许运动，再移动到预测点</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
